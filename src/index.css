@@ -1,0 +1,612 @@
+@import url("./xy-theme.css");
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* ReactFlow specific styles */
+.react-flow__node {
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.react-flow__node.selected {
+  box-shadow: 0 0 0 2px #1a192b;
+}
+
+.react-flow__handle {
+  width: 8px;
+  height: 8px;
+  background-color: #555;
+}
+
+.react-flow__handle:hover {
+  background-color: #1a192b;
+}
+
+.react-flow__handle-connecting {
+  background-color: #ff6b6b;
+}
+
+.react-flow__handle-valid {
+  background-color: #4caf50;
+}
+
+.react-flow__edge-path {
+  stroke-width: 2;
+  transition: stroke 0.2s ease-in-out, stroke-width 0.2s ease-in-out;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke-width: 3;
+}
+
+.react-flow__controls {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.react-flow__controls button {
+  background-color: white;
+  border-color: #e4e4e4;
+  color: #333;
+}
+
+.react-flow__controls button:hover {
+  background-color: #f8f9fa;
+}
+
+/* Custom component styles */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.top-section {
+  border-bottom: 1px solid #ddd;
+}
+
+.prompt-input-container textarea {
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.prompt-input-container textarea:focus {
+  border-color: #4361ee;
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+  outline: none;
+}
+
+.file-operations button {
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.file-operations button:hover {
+  opacity: 0.9;
+}
+
+.file-operations button:active {
+  transform: translateY(1px);
+}
+
+.tabs-container button {
+  transition: border-bottom-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.tabs-container button:hover {
+  background-color: #fff;
+}
+
+.json-view {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.class-node {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.class-node:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.class-node button {
+  opacity: 0.7;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.class-node:hover button {
+  opacity: 1;
+}
+
+.modal-overlay {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.modal-content {
+  animation: slideIn 0.2s ease-in-out;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.form-section input,
+.form-section select {
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.form-section input:focus,
+.form-section select:focus {
+  border-color: #4361ee;
+  box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.1);
+  outline: none;
+}
+
+.form-actions button {
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.form-actions button:hover {
+  opacity: 0.9;
+}
+
+.form-actions button:active {
+  transform: translateY(1px);
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+.error-container {
+  animation: slideDown 0.3s ease-in-out;
+}
+
+.saved-diagrams-panel li {
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.saved-diagrams-panel li:hover {
+  background-color: #e9ecef;
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px) translateX(-50%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) translateX(-50%);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .right-sidebar {
+    width: 100% !important;
+    border-left: none !important;
+    border-top: 1px solid #ddd;
+  }
+}
+
+/* Dark theme support (for future implementation) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark theme variables can be defined here */
+  }
+}
+
+html,
+body {
+  margin: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+}
+
+.dndflow {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: row;
+  /* Ensures vertical sidebar */
+}
+
+.reactflow-wrapper {
+  flex-grow: 1;
+  height: 100%;
+}
+
+/* ============= Enhanced Vertical Sidebar ============= */
+.dndflow aside {
+  width: 350px;
+  /* Increased width (originally 250px) */
+  padding: 20px 15px;
+  border-right: 1px solid #e0e0e0;
+  background: #fafafa;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Node Creation Section */
+.node-creation-section {
+  margin-bottom: 25px;
+}
+
+.description {
+  margin-bottom: 15px;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Node Type Buttons */
+.node-type-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.node-type-btn {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.node-type-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Draggable Node */
+.dndnode {
+  height: 40px;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 10px 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+  font-weight: bold;
+  background: white;
+  border: 1px solid #ccc;
+  transition: all 0.2s;
+}
+
+.dndnode:hover {
+  background: #f5f5f5;
+}
+
+/* JSON Editor */
+.json-editor-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+.json-editor-container h4 {
+  margin: 0 0 12px 0;
+  color: #333;
+  font-size: 15px;
+}
+
+.json-editor {
+  flex: 1;
+  min-height: 300px;
+  width: 100%;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: white;
+  resize: vertical;
+}
+
+.json-editor:focus {
+  outline: 2px solid #90caf9;
+}
+
+.json-error {
+  color: #f44336;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+/* Delete Button */
+.delete-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background: #ff5252;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.delete-btn:hover {
+  background: #ff1744;
+}
+
+.delete-btn:disabled {
+  background: #e0e0e0;
+  cursor: not-allowed;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .dndflow aside {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dndflow aside {
+    width: 100%;
+    height: auto;
+    max-height: 40vh;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+  }
+}
+
+.no-selection-message {
+  padding: 15px;
+  background: #f5f5f5;
+  border-radius: 6px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+.json-editor-container h4 {
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.json-description {
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.json-editor {
+  min-height: 400px;
+  /* Larger editing area */
+}
+
+.edge-creation-section {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #edf2f7;
+}
+
+.edge-type-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.edge-type-btn {
+  padding: 8px;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.edge-type-btn.active {
+  border-color: currentColor;
+  transform: scale(1.02);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.edge-instructions {
+  font-size: 13px;
+  color: #666;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.react-flow__edge-path {
+  stroke-width: 2;
+}
+
+.react-flow__edge-text {
+  font-size: 12px;
+}
+
+/* Add to your stylesheet */
+.edge-creation-section {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #edf2f7;
+}
+
+.edge-type-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.edge-type-btn {
+  padding: 8px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.edge-type-btn.active {
+  border-color: currentColor;
+  transform: scale(1.02);
+}
+
+.edge-type-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.edge-instructions {
+  font-size: 13px;
+  color: #666;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.connecting-instruction {
+  color: #2563eb;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cancel-connection-btn {
+  padding: 2px 8px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.cancel-connection-btn:hover {
+  background: #f0f0f0;
+}
+
+.react-flow__node {
+  cursor: pointer;
+}
+
+.json-editor-container {
+  margin-top: 20px;
+}
+
+.json-error {
+  color: #ff4d4f;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/* Add these styles to ensure the GeminiGenerator component is properly styled */
+/* Add these styles for the GeminiGenerator component */
+.gemini-generator-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.gemini-generator-button:hover {
+  transform: scale(1.05);
+}
+
+.gemini-generator-panel {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.gemini-generator-header {
+  background: linear-gradient(to right, #6366f1, #4f46e5);
+}
+
+.gemini-generator-content {
+  max-height: 90vh;
+}
+
+.gemini-generator-file-tree {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.gemini-generator-code-preview {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.file-item {
+  transition: background-color 0.2s ease;
+}
+
+.file-item:hover {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.file-item.active {
+  background-color: rgba(99, 102, 241, 0.2);
+  color: #4f46e5;
+}
