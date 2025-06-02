@@ -1,118 +1,86 @@
-# React + Vite
+# 🧠 BACKGRAPHIX
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Transforming ideas into dynamic visual diagrams effortlessly
 
-Currently, two official plugins are available:
+![Last Commit](https://img.shields.io/github/last-commit/Vidyasagar-Dadilwar/Backgraphix?style=flat-square)
+![Language](https://img.shields.io/github/languages/top/Vidyasagar-Dadilwar/Backgraphix?style=flat-square)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Built With
 
-## Expanding the ESLint configuration
+![Vite](https://img.shields.io/badge/Vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![React](https://img.shields.io/badge/React-%2361DAFB.svg?style=for-the-badge&logo=react&logoColor=black)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-%23339933.svg?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-%23000000.svg?style=for-the-badge&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-%2347A248.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
 
-# UML Diagram Generator
+## 📚 Table of Contents
 
-A modern React application for creating, editing, and managing UML class diagrams with AI assistance.
+- [Overview](#overview)
+- [Why Backgraphix?](#why-backgraphix)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Usage](#usage)
+- [Testing](#testing)
 
-## Features
+---
 
-### Diagram Creation and Editing
-- Drag-and-drop interface for creating class diagrams
-- Create different types of nodes: Classes, Interfaces, Abstract Classes, and Enums
-- Define relationships: Association, Inheritance, Composition, and Aggregation
-- Edit node properties: class name, attributes, and methods
-- Real-time diagram updates
+## 🔍 Overview
 
-### AI-Assisted Diagram Generation
-- Generate diagrams from natural language descriptions
-- AI processes your requirements and creates a complete diagram structure
-- Customize and refine AI-generated diagrams with the visual editor
+Backgraphix is a powerful developer tool designed to streamline the creation and management of UML diagrams, enhancing software design workflows.
 
-### File Management
-- Save diagrams to local browser storage
-- Export diagrams as JSON files
-- Import previously saved diagrams
-- Manage multiple saved diagrams
+---
 
-### Modern UI
-- Intuitive, responsive interface
-- JSON editor for direct diagram code manipulation
-- Tabs to switch between diagram view and JSON representation
-- Visual feedback with loading indicators and error messages
+## ❓ Why Backgraphix?
 
-## Getting Started
+This project simplifies complex software design visualization while improving developer productivity. The core features include:
 
-### Prerequisites
-- Node.js (v16.0.0 or higher recommended)
-- npm or yarn
+- ⚡ **Efficient Development**: Configures Vite for fast builds and hot module replacement, addressing slow development cycles.
+- 🧠 **UML Diagram Generation**: AI-assisted diagram creation simplifies the visualization of intricate software architectures.
+- 🗃 **File Management**: Easily save, export, and import diagrams to enhance your workflow.
+- 🛠 **Real-time Editing**: Intuitive editing of node properties allows for dynamic updates, improving productivity.
+- 🔧 **Code Generation**: Automatically generates backend structures from UML diagrams, reducing boilerplate code.
+- 📱 **Responsive UI**: A user-friendly interface adapts to various devices, ensuring accessibility and ease of use.
 
-### Installation
+---
 
-1. Clone the repository:
+## 🚀 Getting Started
+
+### ✅ Prerequisites
+
+Ensure you have the following installed:
+
+- **Programming Language**: JavaScript
+- **Package Manager**: npm
+
+### 📥 Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Vidyasagar-Dadilwar/Backgraphix
+   ```
+
+2. **Navigate to the project directory:**
+   ```bash
+   cd Backgraphix
+   ```
+
+3. **Install the dependencies:**
+   ```bash
+   npm install
+   ```
+
+---
+
+### 📌 Usage
+
+Start the development server with:
+
 ```bash
-git clone https://github.com/yourusername/uml-diagram-generator.git
-cd uml-diagram-generator
+npm start
 ```
 
-2. Install dependencies:
-```bash
-npm install
-# or
-yarn
-```
-
-3. Start the development server:
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-4. Open your browser and navigate to `http://localhost:5173`
-
-## How to Use
-
-### Creating a Diagram with AI
-1. Enter a description of your system in the prompt input field at the top
-2. Click "Generate Diagram" and wait for the AI to process your request
-3. The generated diagram will appear in the canvas for you to customize
-
-### Manual Diagram Creation
-1. Select a node type from the sidebar
-2. Drag it onto the canvas to create a new node
-3. Click on a node to select it, then:
-   - Use the "Edit" button (pencil icon) to modify its properties
-   - Add or remove attributes and methods
-   - Change the node type
-4. Create relationships by:
-   - Selecting a relationship type in the sidebar
-   - Clicking on the source node and then the target node
-
-### Working with Files
-1. Save your diagram:
-   - Click "Save Diagram" to store it in the browser
-   - Enter a name for your diagram
-2. Export your diagram:
-   - Click "Export as JSON" to download the diagram as a JSON file
-3. Import a diagram:
-   - Click "Import Diagram" and select a previously exported JSON file
-4. Access saved diagrams:
-   - Switch to the "Saved Diagrams" tab in the sidebar
-   - Click on a saved diagram to load it
-
-## Configuration
-
-To use a different LLM API endpoint, modify the `API_ENDPOINT` variable in `src/api.js`.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Built with [React](https://reactjs.org/)
-- Diagram functionality powered by [React Flow](https://reactflow.dev/)
-- Development tooling by [Vite](https://vitejs.dev/)
-
-# Backgraphix-frontend
+---
